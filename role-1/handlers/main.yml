@@ -1,0 +1,5 @@
+---
+# handlers file for role-1
+- name: Handler from role-1
+  debug:
+    msg: "This is from handler role-1"

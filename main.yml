@@ -1,0 +1,12 @@
+---
+- name: Testing some ansible code
+  hosts: all
+  tasks:
+    - name: Hello message
+      debug:
+        msg: "Hello world... i will start calling the roles"
+
+  roles:
+    - role-1
+    - role-2
+    - role-3

@@ -1,0 +1,8 @@
+---
+# tasks file for role-3
+- name: From role3
+  debug:
+    msg: "This is from role3"
+
+- name: Create tmp file
+  shell: "echo 'hey hey hey' > new_temp.txt"

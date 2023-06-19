@@ -1,0 +1,13 @@
+---
+# tasks file for role-1
+- name: From role1
+  debug:
+    msg: "This is from role1"
+  changed_when: true
+  notify:
+    - Handler from role-1
+
+#- name: Call failure
+#  fail:
+#    msg: "testing failure"
+#  when: true

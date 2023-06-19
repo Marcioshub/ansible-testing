@@ -1,0 +1,17 @@
+---
+- name: Testing some ansible code
+  hosts: localhost
+  tasks:
+    - name: Hello message
+      debug:
+        msg: "Hello world..."
+
+    - name: Simulate long running op (15 sec), wait for up to 45 sec, poll every 5 sec
+      shell: sleep 150; echo 'done sleeping!'
+      register: result
+      async: 60
+      poll: 5
+
+    - name: Output result
+      debug:
+        msg: "{{ result.stdout }}"
