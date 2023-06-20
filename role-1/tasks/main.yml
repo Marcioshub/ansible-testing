@@ -7,7 +7,15 @@
   notify:
     - Handler from role-1
 
-#- name: Call failure
-#  fail:
-#    msg: "testing failure"
-#  when: true
+- name: Copy the script to the remote server
+  copy:
+    src: "{{ playbook_dir }}/role-1/files/write_file.py"
+    dest: "/tmp/write_file.py"
+
+- name: Run the Python script
+  command: "python /tmp/write_file.py one two three"
+
+- name: Remove the script from the remote server
+  file:
+    path: "/tmp/write_file.py"
+    state: absent
